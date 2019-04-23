@@ -15,11 +15,17 @@ set(PROJECT_VERSION_MAJOR ${PROJECT_VERSION_MAJOR})
 set(PROJECT_VERSION_MINOR ${PROJECT_VERSION_MINOR})
 set(PROJECT_VERSION_PATCH ${PROJECT_VERSION_PATCH})
 
-configure_file(lib/version.h.in lib/version.h @ONLY)
+configure_file(lib/version.h.in lib/version.h)
 
 add_executable(helloworld src/program.cpp)
 
 add_library(helloworld_lib lib/hello_func.cpp)
+
+set_target_properties(helloworld PROPERTIES
+  CXX_STANDARD 14
+  CXX_STANDARD_REQUIRED ON
+  COMPILE_OPTIONS "-Wpedantic;-Wall;-Wextra"
+)
 
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
