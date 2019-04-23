@@ -2,5 +2,5 @@
 #include "version.h"
 
 string fullVersion() {
-	return to_string(PROJECT_VERSION_MAJOR) + "." + to_string(PROJECT_VERSION_MINOR) + "." + to_string(PROJECT_VERSION_PATCH);
+	return std::to_string(PROJECT_VERSION_MAJOR) + "." + std::to_string(PROJECT_VERSION_MINOR) + "." + std::to_string(PROJECT_VERSION_PATCH);
 }
