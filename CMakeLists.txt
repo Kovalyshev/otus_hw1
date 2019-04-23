@@ -1,12 +1,15 @@
 cmake_minimum_required(VERSION 3.7)
 
-set(BUILD_VERSION, $ENV{TRAVIS_BUILD_NUMBER})
-
-if($BUILD_VERSION)
-  set(BUILD_VERSION}, 0)
+if(NOT DEFINED ENV{TRAVIS_BUILD_NUMBER})
+  message("NOT DEFINED TRAVIS_BUILD_NUMBER")
+  message("Try to define")
+  set(ENV{TRAVIS_BUILD_NUMBER} "0")
+  message("New number is $ENV{TRAVIS_BUILD_NUMBER}")
 endif()
 
-project(helloworld VERSION 1.0.${TRAVIS_BUILD_NUMBER} )
+MATH(EXPR ENV{TRAVIS_BUILD_NUMBER} "$ENV{TRAVIS_BUILD_NUMBER} + 1")
+
+project(helloworld VERSION 1.0.$ENV{TRAVIS_BUILD_NUMBER} )
 
 configure_file(lib/version.h.in lib/version.h @ONLY)
 
