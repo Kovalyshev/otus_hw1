@@ -11,6 +11,10 @@ MATH(EXPR ENV{TRAVIS_BUILD_NUMBER} "$ENV{TRAVIS_BUILD_NUMBER} + 1")
 
 project(helloworld VERSION 1.0.$ENV{TRAVIS_BUILD_NUMBER} )
 
+set(PROJECT_VERSION_MAJOR ${PROJECT_VERSION_MAJOR})
+set(PROJECT_VERSION_MINOR ${PROJECT_VERSION_MINOR})
+set(PROJECT_VERSION_PATCH ${PROJECT_VERSION_PATCH})
+
 configure_file(lib/version.h.in lib/version.h @ONLY)
 
 add_executable(helloworld src/program.cpp)
