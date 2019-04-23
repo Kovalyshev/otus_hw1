@@ -4,7 +4,6 @@ if(NOT DEFINED ENV{TRAVIS_BUILD_NUMBER})
   message("NOT DEFINED TRAVIS_BUILD_NUMBER")
   message("Try to define")
   set(ENV{TRAVIS_BUILD_NUMBER} "0")
-  message("New number is $ENV{TRAVIS_BUILD_NUMBER}")
 endif()
 
 MATH(EXPR ENV{TRAVIS_BUILD_NUMBER} "$ENV{TRAVIS_BUILD_NUMBER} + 1")
@@ -19,11 +18,10 @@ configure_file(lib/version.h.in lib/version.h)
 
 add_executable(helloworld src/program.cpp)
 
-add_library(helloworld_lib lib/hello_func.cpp)
-
 set_target_properties(helloworld PROPERTIES
   CXX_STANDARD 14
   CXX_STANDARD_REQUIRED ON
+  CXX_EXTENSIONS OFF
   COMPILE_OPTIONS "-Wpedantic;-Wall;-Wextra"
 )
 
@@ -37,6 +35,8 @@ set_target_properties( helloworld
     LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib"
         RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin"
     )
+
+add_library(helloworld_lib lib/hello_func.cpp)
 
 target_link_libraries(helloworld helloworld_lib)
 
