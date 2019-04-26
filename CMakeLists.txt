@@ -1,12 +1,12 @@
 cmake_minimum_required(VERSION 3.7)
 
-if(NOT DEFINED ${BUILD_NUMBER})
-  message("NOT DEFINED BUILD_NUMBER")
-  message("Try to define")
-  set(BUILD_NUMBER "0")
-else("${BUILD_NUMBER}" == "*")
-  set(BUILD_NUMBER "0")
-endif()
+#if(NOT DEFINED ${BUILD_NUMBER})
+#  message("NOT DEFINED BUILD_NUMBER")
+#  message("Try to define")
+#  set(BUILD_NUMBER "0")
+#else("${BUILD_NUMBER}" == "*")
+#  set(BUILD_NUMBER "0")
+#endif()
 
 ### MATH(EXPR ENV{TRAVIS_BUILD_NUMBER} "$ENV{BUILD_NUMBER} + 1")
 
