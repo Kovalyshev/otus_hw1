@@ -36,9 +36,19 @@ set_target_properties( helloworld
         RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin"
     )
 
-add_library(helloworld_lib lib/hello_func.cpp)
+add_library(LibVersion lib/hello_func.cpp)
 
-target_link_libraries(helloworld helloworld_lib)
+### Добавляем тесты
+
+include(cmake/gtest.cmake)
+fetch_googletest(
+	${PROJECT_SOURCE_DIR}/cmake
+	${PROJECT_BINARY_DIR}/gtest
+)
+enable_testing()
+add_subdirectory(test)
+
+target_link_libraries(helloworld LibVersion)
 
 install(TARGETS helloworld RUNTIME DESTINATION bin)
 
