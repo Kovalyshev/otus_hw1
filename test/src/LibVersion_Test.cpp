@@ -22,5 +22,5 @@ TEST(LibVersion, ContainsThreeDigits) {
 		pos = version.find(".", pos + 1);
 	}
 		
-	ASSERT_EQ(countDigits, 2);
+	ASSERT_EQ(countDigits, 3);
 }
