@@ -7,8 +7,7 @@ env:
 script:
 - cmake . -DBUILD_NUMBER=$TRAVIS_BUILD_NUMBER
 - cmake --build .
-- ./bin/unit_tests
-- cmake --build . --target package
+- ./bin/unit_tests && cmake --build . --target package
 branches:
   only:
   - master
