@@ -12,7 +12,7 @@ deploy:
   provider: script
   skip_cleanup: true
   script:
-  - curl -T packages/helloworld-1.0.$TRAVIS_BUILD_NUMBER-Linux.deb -ukovalyshev:$BINTRAY_API_KEY "https://api.bintray.com/content/kovalyshev/OTUS/otus_m1_hw1/$TRAVIS_BUILD_NUMBER/helloworld-1.0.$TRAVIS_BUILD_NUMBER-Linux.deb;deb_distribution=trusty;deb_component=main;deb_architecture=i386;publish=1"
+  - curl -T packages/helloworld-1.0.$TRAVIS_BUILD_NUMBER-Linux.deb -ukovalyshev:$BINTRAY_API_KEY "https://api.bintray.com/content/kovalyshev/OTUS/otus_m1_hw1/$TRAVIS_BUILD_NUMBER/helloworld-1.0.$TRAVIS_BUILD_NUMBER-Linux.deb;deb_distribution=trusty;deb_component=main;deb_architecture=amd64;publish=1"
 branches:
   only:
   - master
