@@ -2,9 +2,6 @@
 
 #include <string>
 #include <iostream>
-#include <stdio.h>
-#include <stdlib.h>
+#include <sstream>
 
-using namespace std;
-
-string fullVersion();
+std::string fullVersion();

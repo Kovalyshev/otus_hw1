@@ -1,12 +1,6 @@
 cmake_minimum_required(VERSION 3.7)
 
-message("build number is ${BUILD_NUMBER}")
-
 project(helloworld VERSION 1.0.${BUILD_NUMBER} )
-
-message("build number is ${PROJECT_VERSION_MAJOR}")
-message("build number is ${PROJECT_VERSION_MINOR}")
-message("build number is ${PROJECT_VERSION_PATCH}")
 
 configure_file(lib/version.h.in lib/version.h)
 
